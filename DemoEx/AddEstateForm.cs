@@ -16,7 +16,7 @@ namespace DemoEx
 {
     public partial class AddEstateForm : Form
     {
-        private string photo;
+        private string photo = "home.png";
         private Db db = new Db();
         private int id;
         public AddEstateForm(int id)
@@ -34,7 +34,9 @@ namespace DemoEx
         {
             db.setConnectionStr(Connection.getConnectionString());
             type.DropDownStyle = ComboBoxStyle.DropDownList;
+            status.DropDownStyle = ComboBoxStyle.DropDownList;
             type.Items.AddRange(db.getValuesFromColumn("select type from estate_type;").ToArray());
+            
             type.SelectedIndex = 0;
             dataGridView1.RowTemplate.Height = 50;
             db.FillDGV(dataGridView1, "select id as '№', CONCAT(surname, name, patronymic) as 'ФИО', phone_number as 'Телефон' from clients where type='Продавец' or type ='Арендодатель';");
@@ -44,15 +46,22 @@ namespace DemoEx
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(246, 246, 246);
             dataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
+            dataGridView1.Enabled = false;
 
             if (id == 0)
             {
                 button1.Text = "Добавить";
+                status.Items.Add("Продажа");
+                status.Items.Add("Сдача в аренду");
             } else
             {
+                status.Items.Add("В продаже");
+                status.Items.Add("Сдается в аренду");
+                status.Text = db.getValuesFromColumn($"select status from estate where id={id};")[0];
                 photo = db.getValuesFromColumn($"select photo from estate where id={id};")[0];
                 button1.Text = "Редактировать";
                 type.Text = db.getValuesFromColumn($"select (select type from estate_type where id=estate_type) from estate where id={id};")[0];
+                type.Text = db.getValuesFromColumn($"select status from estate where id={id};")[0];
                 address.Text = db.getValuesFromColumn($"select address from estate where id={id};")[0];
                 squareCount.Text = db.getIntValuesFromColumn($"select square from estate where id={id};")[0].ToString();
                 roomsCount.Text = db.getIntValuesFromColumn($"select rooms from estate where id={id};")[0].ToString();
@@ -131,8 +140,8 @@ namespace DemoEx
                 {
                     if (dataGridView1.SelectedCells.Count > 0 || price.Text.Length > 4 || squareCount.Text.Length > 1 || roomsCount.Text.Length > 0 || address.Text.Length > 0)
                     {
-                        db.fillTableWithData($"INSERT INTO `db17`.`estate` (`estate_type`, `owner_id`, `address`, `square`, `cadastral`,`rooms`, `price`, `photo`) VALUES ('{db.getIntValuesFromColumn($"select id from estate_type where type='{type.Text}'")[0]}', '{dataGridView1.SelectedCells[0].Value}', '{address.Text}', '{squareCount.Text}', '{cadastral.Text}', '{roomsCount.Text}', '{price.Text}', '{photo}');");
-                        MessageBox.Show("Объект успешно добавлен!");
+                        db.fillTableWithData($"INSERT INTO `db17`.`estate` (`estate_type`, `owner_id`, `address`, `square`, `cadastral`,`rooms`, `price`, `photo`, `status`) VALUES ('{db.getIntValuesFromColumn($"select id from estate_type where type='{type.Text}'")[0]}', '{dataGridView1.SelectedCells[0].Value}', '{address.Text}', '{squareCount.Text}', '{cadastral.Text}', '{roomsCount.Text}', '{price.Text}', '{photo}', '{(status.Text == "Продажа" ? "В продаже" : "Сдается в аренду")}');");
+                        MessageBox.Show("Объект успешно добавлен!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         price.Clear();
                         squareCount.Clear();
                         roomsCount.Clear();
@@ -146,7 +155,7 @@ namespace DemoEx
                 }
                 else
                 {
-                   db.updateTable($"UPDATE `db17`.`estate` SET `estate_type` = '{db.getValuesFromColumn($"select id from estate_type where type='{type.Text}';")[0]}', `owner_id` = '{dataGridView1.SelectedRows[0].Cells[0].Value}', `address` = '{address.Text}', `square` = '{squareCount.Text}', `rooms` = '{roomsCount.Text}', `price` = '{price.Text}', `photo` = '{photo}' WHERE (`id` = '{id}');");
+                   db.updateTable($"UPDATE `db17`.`estate` SET `estate_type` = '{db.getValuesFromColumn($"select id from estate_type where type='{type.Text}';")[0]}', `owner_id` = '{dataGridView1.SelectedRows[0].Cells[0].Value}', `address` = '{address.Text}', `square` = '{squareCount.Text}', `rooms` = '{roomsCount.Text}', `price` = '{price.Text}', `photo` = '{photo}', `status` = '{status.Text}' WHERE (`id` = '{id}');");
                     MessageBox.Show("Данные объекта успешно отредактированы!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
@@ -154,6 +163,35 @@ namespace DemoEx
             catch (Exception ex)
             {
                 MessageBox.Show("Что-то пошло не так!");
+            }
+        }
+
+        private void status_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (status.Text)
+            { 
+                case ("Продажа"):
+                    dataGridView1.Enabled = true;
+                    dataGridView1.RowTemplate.Height = 50;
+                    db.FillDGV(dataGridView1, "select id as '№', CONCAT(surname, name, patronymic) as 'ФИО', phone_number as 'Телефон' from clients where type='Продавец';");
+                    dataGridView1.Columns["№"].Width = 35;
+                    dataGridView1.Columns["Телефон"].Width = 200;
+                    dataGridView1.MultiSelect = false;
+                    dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(246, 246, 246);
+                    dataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
+                    break;
+                case ("Сдача в аренду"):
+                    dataGridView1.Enabled = true;
+                    dataGridView1.RowTemplate.Height = 50;
+                    db.FillDGV(dataGridView1, "select id as '№', CONCAT(surname, name, patronymic) as 'ФИО', phone_number as 'Телефон' from clients where type ='Арендодатель';");
+                    dataGridView1.Columns["№"].Width = 35;
+                    dataGridView1.Columns["Телефон"].Width = 200;
+                    dataGridView1.MultiSelect = false;
+                    dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(246, 246, 246);
+                    dataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
+                    break;
             }
         }
     }

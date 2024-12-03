@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Office.Interop.Word;
 using DB;
+using System.Windows.Forms;
 
 namespace DemoEx.data
 {   
@@ -34,8 +35,8 @@ namespace DemoEx.data
             var estateSquare = db.getIntValuesFromColumn($"select square from estate where id={estateId};")[0];
             var estatePrice = db.getIntValuesFromColumn($"select price from estate where id={estateId};")[0];
 
-            Application wordApp = new Application();
-            Document wordDoc = wordApp.Documents.Add(false);
+            Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
+            Document wordDoc = wordApp.Documents.Add();
             wordApp.Visible = true;
 
             if (type == "Покупка")
@@ -53,6 +54,7 @@ namespace DemoEx.data
                 bodyParagraph.Range.Font.Name = "Times New Roman";
                 bodyParagraph.Range.Font.Size = 16;
                 bodyParagraph.Range.ParagraphFormat.SpaceBefore = 24;
+                bodyParagraph.Range.Font.Bold = 0;
                 bodyParagraph.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphJustify;
                 bodyParagraph.Range.InsertParagraphAfter();
 
@@ -70,6 +72,7 @@ namespace DemoEx.data
                 bodyParagraph2.Range.Font.Name = "Times New Roman";
                 bodyParagraph2.Range.Font.Size = 16;
                 bodyParagraph2.Range.ParagraphFormat.SpaceBefore = 24;
+                bodyParagraph2.Range.Font.Bold = 0;
                 bodyParagraph2.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphJustify;
                 bodyParagraph2.Range.InsertParagraphAfter();
 
@@ -102,6 +105,7 @@ namespace DemoEx.data
                 bodyParagraph5.Range.Font.Name = "Times New Roman";
                 bodyParagraph5.Range.Font.Size = 16;
                 bodyParagraph5.Range.ParagraphFormat.SpaceBefore = 24;
+                bodyParagraph5.Range.Font.Bold = 0;
                 bodyParagraph5.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphJustify;
                 bodyParagraph5.Range.InsertParagraphAfter();
 
@@ -114,7 +118,7 @@ namespace DemoEx.data
                 bodyParagraph6.Range.InsertParagraphAfter();
 
                 Paragraph bodyParagraph7 = wordDoc.Content.Paragraphs.Add();
-                bodyParagraph7.Range.Text = $"При передаче Квартиры Продавец обязан передать Покупателю также всю имеющуюся техническую и иную документацию на Квартиру и находящееся в ней оборудоване, а также документацию и предметы, связанные с владением, эксплуатацией и использованием Квартиры (ключи, документы и т.п.)";
+                bodyParagraph7.Range.Text = $"При передаче Квартиры Продавец обязан передать Покупателю также всю имеющуюся техническую и иную документацию на Квартиру и находящееся в ней оборудование, а также документацию и предметы, связанные с владением, эксплуатацией и использованием Квартиры (ключи, документы и т.п.)";
                 bodyParagraph7.Range.Font.Name = "Times New Roman";
                 bodyParagraph7.Range.Font.Size = 16;
                 bodyParagraph7.Range.ParagraphFormat.SpaceBefore = 24;
@@ -142,6 +146,7 @@ namespace DemoEx.data
                 bodyParagraph9.Range.Font.Name = "Times New Roman";
                 bodyParagraph9.Range.Font.Size = 16;
                 bodyParagraph9.Range.ParagraphFormat.SpaceBefore = 24;
+                bodyParagraph9.Range.Font.Bold = 0;
                 bodyParagraph9.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphJustify;
                 bodyParagraph9.Range.InsertParagraphAfter();
 
@@ -166,6 +171,7 @@ namespace DemoEx.data
                 bodyParagraph11.Range.Font.Name = "Times New Roman";
                 bodyParagraph11.Range.Font.Size = 16;
                 bodyParagraph11.Range.ParagraphFormat.SpaceBefore = 24;
+                bodyParagraph11.Range.Font.Bold = 0;
                 bodyParagraph11.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphJustify;
                 bodyParagraph11.Range.InsertParagraphAfter();
 
@@ -173,6 +179,7 @@ namespace DemoEx.data
                 bodyParagraph12.Range.Text = $"4.2. Покупатель гарантирует и заверяет, что:\r\n4.2.1. До заключения настоящего Договора Покупатель визуально осмотрел Квартиру, ознакомился с ее основными конструктивными и техническими элементами и особенностями, а также с ее эксплуатационным и техническим состоянием.\r\nПокупатель удовлетворен состоянием Квартиры, каких либо дефектов и недостатков, о которых Покупателю не было сообщено, Покупателем не обнаружено.\r\nНа основании изложенного в настоящем пункте Договора Покупатель принял решение о приобретении Квартиры на условиях, установленных настоящим Договором.";
                 bodyParagraph12.Range.Font.Name = "Times New Roman";
                 bodyParagraph12.Range.Font.Size = 16;
+                bodyParagraph12.Range.Font.Bold = 0;
                 bodyParagraph12.Range.ParagraphFormat.SpaceBefore = 24;
                 bodyParagraph12.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphJustify;
                 bodyParagraph12.Range.InsertParagraphAfter();
@@ -180,8 +187,6 @@ namespace DemoEx.data
             else if (type == "Аренда")
             {
             }
-            object fileName = $@"D:\Сделки\Договоры\Договор{db.getIntValuesFromColumn("select id from deals ORDER BY id DESC LIMIT 1;")[0] + 1}.docx";
-            wordDoc.Save();
             wordDoc.Close();
             wordApp.Quit();
         }

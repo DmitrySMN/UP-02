@@ -595,25 +595,6 @@ namespace DemoEx
             db.FillDGV(dataGridView1, $"select id, (select type from estate_type where id=estate_type) as 'Тип объекта', (select concat(Surname, Name, Patronymic) from clients where id=owner_id) as 'Владелец', address as 'Адрес', square as 'Площадь',cadastral as 'Кадастровый номер', rooms as 'Кол-во комнат', price as 'Цена', photo, status as 'Статус' from estate;");
             dataGridView1.Columns.Remove("Фото объекта");
             db.setUpDgvImages(dataGridView1, "Фото объекта");
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                if (row.Cells[7].Value.ToString() == "В продаже")
-                {
-                    row.Cells[7].Style.BackColor = Color.LightGreen;
-                }
-                else if (row.Cells[7].Value.ToString() == "Продан")
-                {
-                    row.Cells[7].Style.BackColor = Color.LightPink;
-                }
-                else if (row.Cells[7].Value.ToString() == "Арендуется")
-                {
-                    row.Cells[7].Style.BackColor = Color.LightGreen;
-                }
-                else if (row.Cells[7].Value.ToString() == "Арендован")
-                {
-                    row.Cells[7].Style.BackColor = Color.LightPink;
-                }
-            }
         }
 
         private void toolStripMenuItem4_Click(object sender, EventArgs e)

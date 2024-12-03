@@ -58,12 +58,28 @@ namespace DemoEx
             {
                 editbutton.Visible = false;
                 addButton.Visible = true;
+
+                string type = db.getValuesFromColumn($"select type from clients where id={clientId};")[0].ToString();
+
+                switch (type)
+                {
+                    case "Покупатель":
+                        db.FillDGV(dataGridView1, "select id, photo, square as 'Площадь', rooms as 'Кол-во комнат', price as 'Цена', owner_id as 'Владелец' from estate where status='В продаже';");
+                        dataGridView1.Columns["photo"].Visible = false;
+                        dataGridView1.Columns["id"].Visible = false;
+                        dataGridView1.Columns["Владелец"].Visible = false;
+                        db.setUpDgvImages(dataGridView1, "Фото объекта");
+                        break;
+                    case "Арендатель":
+                        db.FillDGV(dataGridView1, "select id, photo, square as 'Площадь', rooms as 'Кол-во комнат', price as 'Цена', owner_id as 'Владелец' from estate where status='Сдается в аренду';");
+                        dataGridView1.Columns["photo"].Visible = false;
+                        dataGridView1.Columns["id"].Visible = false;
+                        dataGridView1.Columns["Владелец"].Visible = false;
+                        db.setUpDgvImages(dataGridView1, "Фото объекта");
+                        break;
+                }
+
                 
-                db.FillDGV(dataGridView1, "select id, photo, square as 'Площадь', rooms as 'Кол-во комнат', price as 'Цена', owner_id as 'Владелец' from estate where status='В продаже' or status='Арендуется';");
-                dataGridView1.Columns["photo"].Visible = false;
-                dataGridView1.Columns["id"].Visible = false;
-                dataGridView1.Columns["Владелец"].Visible = false;
-                db.setUpDgvImages(dataGridView1, "Фото объекта");
 
                 var dealNumber = db.getIntValuesFromColumn("select id from deals ORDER BY id DESC LIMIT 1;")[0] + 1;
                 numberLabel.Text += " " + dealNumber.ToString();

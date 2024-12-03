@@ -48,6 +48,8 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.cadastral = new System.Windows.Forms.MaskedTextBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.status = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -57,6 +59,7 @@
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -166,7 +169,7 @@
             this.groupBox5.Controls.Add(this.address);
             this.groupBox5.Location = new System.Drawing.Point(13, 221);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(718, 93);
+            this.groupBox5.Size = new System.Drawing.Size(349, 93);
             this.groupBox5.TabIndex = 4;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Адрес";
@@ -176,7 +179,7 @@
             this.address.Location = new System.Drawing.Point(6, 38);
             this.address.MaxLength = 100;
             this.address.Name = "address";
-            this.address.Size = new System.Drawing.Size(706, 39);
+            this.address.Size = new System.Drawing.Size(337, 39);
             this.address.TabIndex = 0;
             this.address.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
@@ -244,6 +247,25 @@
             this.cadastral.Size = new System.Drawing.Size(485, 39);
             this.cadastral.TabIndex = 0;
             // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.status);
+            this.groupBox8.Location = new System.Drawing.Point(368, 221);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(360, 93);
+            this.groupBox8.TabIndex = 5;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Действие";
+            // 
+            // status
+            // 
+            this.status.FormattingEnabled = true;
+            this.status.Location = new System.Drawing.Point(6, 38);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(348, 40);
+            this.status.TabIndex = 1;
+            this.status.SelectedIndexChanged += new System.EventHandler(this.status_SelectedIndexChanged);
+            // 
             // AddEstateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
@@ -251,6 +273,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1200, 649);
             this.ControlBox = false;
+            this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.button3);
@@ -283,6 +306,7 @@
             this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -308,5 +332,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.MaskedTextBox cadastral;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.ComboBox status;
     }
 }
