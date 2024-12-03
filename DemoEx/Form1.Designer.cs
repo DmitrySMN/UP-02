@@ -41,12 +41,12 @@ namespace DemoEx
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.captcha = new System.Windows.Forms.GroupBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.captchaPicture = new System.Windows.Forms.PictureBox();
+            this.captchaInputText = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.captcha.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.captchaPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // pwdTb
@@ -177,8 +177,8 @@ namespace DemoEx
             // captcha
             // 
             this.captcha.Controls.Add(this.button3);
-            this.captcha.Controls.Add(this.textBox1);
-            this.captcha.Controls.Add(this.pictureBox2);
+            this.captcha.Controls.Add(this.captchaInputText);
+            this.captcha.Controls.Add(this.captchaPicture);
             this.captcha.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.captcha.Location = new System.Drawing.Point(17, 45);
             this.captcha.Name = "captcha";
@@ -187,20 +187,21 @@ namespace DemoEx
             this.captcha.TabStop = false;
             this.captcha.Text = "Captcha";
             // 
-            // pictureBox2
+            // captchaPicture
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(25, 38);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(315, 186);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
+            this.captchaPicture.Location = new System.Drawing.Point(25, 38);
+            this.captchaPicture.Name = "captchaPicture";
+            this.captchaPicture.Size = new System.Drawing.Size(315, 186);
+            this.captchaPicture.TabIndex = 0;
+            this.captchaPicture.TabStop = false;
             // 
-            // textBox1
+            // captchaInputText
             // 
-            this.textBox1.Location = new System.Drawing.Point(25, 233);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(315, 39);
-            this.textBox1.TabIndex = 1;
+            this.captchaInputText.Location = new System.Drawing.Point(25, 233);
+            this.captchaInputText.MaxLength = 4;
+            this.captchaInputText.Name = "captchaInputText";
+            this.captchaInputText.Size = new System.Drawing.Size(315, 39);
+            this.captchaInputText.TabIndex = 1;
             // 
             // button3
             // 
@@ -249,7 +250,7 @@ namespace DemoEx
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.captcha.ResumeLayout(false);
             this.captcha.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.captchaPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,8 +268,8 @@ namespace DemoEx
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox captcha;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.PictureBox captchaPicture;
+        private System.Windows.Forms.TextBox captchaInputText;
         private System.Windows.Forms.Button button3;
     }
 }

@@ -37,6 +37,7 @@ namespace DemoEx
             captcha.Visible = false;
             db.setConnectionStr(Connection.getConnectionString());
             pwdTb.PasswordChar = '·';
+            captchaPicture.Image = db.createImageForCaptcha(captchaPicture.Width, captchaPicture.Height, 4);
 
         }
 
@@ -131,6 +132,14 @@ namespace DemoEx
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if (captchaInputText.Text == db.getCaptchaText())
+            {
+                captcha.Visible = false;
+            } else
+            {
+                MessageBox.Show("Каптча введена неверно!", "Каптча", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
     }
