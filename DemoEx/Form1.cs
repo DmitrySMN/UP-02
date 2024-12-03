@@ -19,6 +19,7 @@ namespace DemoEx
     public partial class Form1 : Form
     {
         private Db db = new Db();
+        private int counter = 0;
         public Form1()
         {
             InitializeComponent();
@@ -33,6 +34,7 @@ namespace DemoEx
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            captcha.Visible = false;
             db.setConnectionStr(Connection.getConnectionString());
             pwdTb.PasswordChar = '·';
 
@@ -86,6 +88,11 @@ namespace DemoEx
             
             try
             {
+                if (counter >= 1)
+                {
+                    captcha.Visible = true;
+                }
+
                 if (loginTb.Text.Length == 0 || pwdTb.Text.Length == 0)
                 {
                     MessageBox.Show("Заполните все поля!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -111,6 +118,7 @@ namespace DemoEx
                     else
                     {
                         MessageBox.Show("Неверный логин или пароль!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        counter++;
                         return;
                     }
                 }
@@ -119,6 +127,11 @@ namespace DemoEx
             {
               
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

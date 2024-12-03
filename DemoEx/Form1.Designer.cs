@@ -40,7 +40,13 @@ namespace DemoEx
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.captcha = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.captcha.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pwdTb
@@ -89,7 +95,7 @@ namespace DemoEx
             this.label1.Location = new System.Drawing.Point(11, 100);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 32);
+            this.label1.Size = new System.Drawing.Size(82, 32);
             this.label1.TabIndex = 13;
             this.label1.Text = "Логин";
             // 
@@ -101,7 +107,7 @@ namespace DemoEx
             this.label2.Location = new System.Drawing.Point(11, 190);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 32);
+            this.label2.Size = new System.Drawing.Size(99, 32);
             this.label2.TabIndex = 14;
             this.label2.Text = "Пароль";
             // 
@@ -113,7 +119,7 @@ namespace DemoEx
             this.checkBox1.Location = new System.Drawing.Point(17, 281);
             this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(220, 36);
+            this.checkBox1.Size = new System.Drawing.Size(219, 36);
             this.checkBox1.TabIndex = 15;
             this.checkBox1.Text = "Показать пароль";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -168,6 +174,48 @@ namespace DemoEx
             this.label3.TabIndex = 22;
             this.label3.Text = "Задать настройки подключения";
             // 
+            // captcha
+            // 
+            this.captcha.Controls.Add(this.button3);
+            this.captcha.Controls.Add(this.textBox1);
+            this.captcha.Controls.Add(this.pictureBox2);
+            this.captcha.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.captcha.Location = new System.Drawing.Point(17, 45);
+            this.captcha.Name = "captcha";
+            this.captcha.Size = new System.Drawing.Size(363, 325);
+            this.captcha.TabIndex = 23;
+            this.captcha.TabStop = false;
+            this.captcha.Text = "Captcha";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(25, 38);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(315, 186);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(25, 233);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(315, 39);
+            this.textBox1.TabIndex = 1;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Black;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button3.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(0, 280);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(365, 45);
+            this.button3.TabIndex = 21;
+            this.button3.Text = "Войти";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
@@ -176,6 +224,7 @@ namespace DemoEx
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(759, 480);
             this.ControlBox = false;
+            this.Controls.Add(this.captcha);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -198,6 +247,9 @@ namespace DemoEx
             this.Text = "АВТОРИЗАЦИЯ";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.captcha.ResumeLayout(false);
+            this.captcha.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,6 +266,10 @@ namespace DemoEx
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox captcha;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button3;
     }
 }
 
