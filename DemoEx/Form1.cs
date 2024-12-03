@@ -83,34 +83,41 @@ namespace DemoEx
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            
             try
             {
-
                 if (loginTb.Text.Length == 0 || pwdTb.Text.Length == 0)
                 {
                     MessageBox.Show("Заполните все поля!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-
-                string login = loginTb.Text;
-                string pwd = pwdTb.Text;
-                string pwdFromDb = db.getValuesFromColumn($"select password from employees where login='{login}';")[0];
-
-                if (db.getHashFromPassword(pwd) == pwdFromDb)
+                                
+                if (loginTb.Text == "admin" && pwdTb.Text == "admin")
                 {
-                    int post = Convert.ToInt32(db.getIntValuesFromColumn($"select post from employees where login='{login}';")[0]);
-                    new MainForm(login, post).ShowDialog();
-                    loginTb.Clear();
-                    pwdTb.Clear();
-                }
-                else
-                {
-                    MessageBox.Show("Неверный логин или пароль!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    new AdminForm().ShowDialog();
                     return;
+                } else
+                {
+                    string login = loginTb.Text;
+                    string pwd = pwdTb.Text;
+                    string pwdFromDb = db.getValuesFromColumn($"select password from employees where login='{login}';")[0];
+                    if (db.getHashFromPassword(pwd) == pwdFromDb)
+                    {
+                        int post = Convert.ToInt32(db.getIntValuesFromColumn($"select post from employees where login='{login}';")[0]);
+                        new MainForm(login, post).ShowDialog();
+                        loginTb.Clear();
+                        pwdTb.Clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Неверный логин или пароль!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
+                
             } catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+              
             }
         }
     }

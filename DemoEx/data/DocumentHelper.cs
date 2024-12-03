@@ -37,7 +37,7 @@ namespace DemoEx.data
             Application wordApp = new Application();
             Document wordDoc = wordApp.Documents.Add(false);
             wordApp.Visible = true;
-            
+
             if (type == "Покупка")
             {
                 Paragraph titleParagraph = wordDoc.Content.Paragraphs.Add();
@@ -59,7 +59,7 @@ namespace DemoEx.data
                 Paragraph subjectTitleParagraph = wordDoc.Content.Paragraphs.Add();
                 subjectTitleParagraph.Range.Text = "1. Предмет договора";
                 subjectTitleParagraph.Range.Font.Name = "Times New Roman";
-                subjectTitleParagraph.Range.Font.Size = 20; 
+                subjectTitleParagraph.Range.Font.Size = 20;
                 subjectTitleParagraph.Range.Font.Bold = 1;
                 subjectTitleParagraph.Range.ParagraphFormat.SpaceBefore = 24;
                 subjectTitleParagraph.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
@@ -176,7 +176,8 @@ namespace DemoEx.data
                 bodyParagraph12.Range.ParagraphFormat.SpaceBefore = 24;
                 bodyParagraph12.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphJustify;
                 bodyParagraph12.Range.InsertParagraphAfter();
-            } else if (type == "Аренда")
+            }
+            else if (type == "Аренда")
             {
             }
             object fileName = $@"D:\Сделки\Договоры\Договор{db.getIntValuesFromColumn("select id from deals ORDER BY id DESC LIMIT 1;")[0] + 1}.docx";

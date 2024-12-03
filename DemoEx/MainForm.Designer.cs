@@ -105,7 +105,7 @@ namespace DemoEx
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(531, 12);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 32);
+            this.label5.Size = new System.Drawing.Size(95, 32);
             this.label5.TabIndex = 8;
             this.label5.Text = "Сделки";
             this.label5.Click += new System.EventHandler(this.label5_Click_1);
@@ -126,7 +126,7 @@ namespace DemoEx
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(359, 12);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(112, 32);
+            this.label4.Size = new System.Drawing.Size(113, 32);
             this.label4.TabIndex = 8;
             this.label4.Text = "Объекты";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -147,7 +147,7 @@ namespace DemoEx
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(192, 12);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 32);
+            this.label3.Size = new System.Drawing.Size(110, 32);
             this.label3.TabIndex = 8;
             this.label3.Text = "Клиенты";
             this.label3.Click += new System.EventHandler(this.label3_Click_1);
@@ -161,7 +161,6 @@ namespace DemoEx
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // label1
             // 
@@ -171,7 +170,6 @@ namespace DemoEx
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 32);
             this.label1.TabIndex = 3;
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // label2
             // 
@@ -221,7 +219,7 @@ namespace DemoEx
             this.employeeLabel.ForeColor = System.Drawing.Color.White;
             this.employeeLabel.Location = new System.Drawing.Point(683, 12);
             this.employeeLabel.Name = "employeeLabel";
-            this.employeeLabel.Size = new System.Drawing.Size(146, 32);
+            this.employeeLabel.Size = new System.Drawing.Size(147, 32);
             this.employeeLabel.TabIndex = 12;
             this.employeeLabel.Text = "Сотрудники";
             this.employeeLabel.Click += new System.EventHandler(this.employeeLabel_Click);
@@ -243,7 +241,7 @@ namespace DemoEx
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(55, 12);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(83, 32);
+            this.label8.Size = new System.Drawing.Size(84, 32);
             this.label8.TabIndex = 10;
             this.label8.Text = "Выход";
             this.label8.Click += new System.EventHandler(this.label8_Click);
@@ -282,7 +280,7 @@ namespace DemoEx
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(1474, 6);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(87, 32);
+            this.label6.Size = new System.Drawing.Size(88, 32);
             this.label6.TabIndex = 14;
             this.label6.Text = "Всего: ";
             // 

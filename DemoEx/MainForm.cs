@@ -247,16 +247,6 @@ namespace DemoEx
 
         }
 
-        private void pictureBox1_Click_1(object sender, EventArgs e)
-        {
-            new PersonalAccount(login).ShowDialog();
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-            new PersonalAccount(login).ShowDialog();
-        }
-
         private void button1_Click_2(object sender, EventArgs e)
         {
             switch (currentInfo)

@@ -9,7 +9,7 @@ namespace DemoEx
 {
     static class Connection
     {
-        private static string con = $"host=localhost;uid=root;pwd=root;database=db17;";
+        private static string con = $"host=10.207.106.12;uid=user17;pwd=rx45;database=db17;";
     
         public static string getConnectionString()
         {
