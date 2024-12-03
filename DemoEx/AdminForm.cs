@@ -118,7 +118,7 @@ namespace DemoEx
                 }
                 catch (Exception excc)
                 {
-                    MessageBox.Show("Восстановление не удалось", "Восстановление", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show("Восстановление не удалось", "Восстановление", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             } else
             {
@@ -128,8 +128,8 @@ namespace DemoEx
 
         private void restoreDataBase()
         {
-            string connectionString = "host=localhost;uid=root;pwd=root;database=db17;";
-            string sqlFilePath = "restore_dump.sql";
+            string connectionString = Connection.getConnectionString();
+            string sqlFilePath = @".\data\restore_dump.sql";
 
             string sqlScript = File.ReadAllText(sqlFilePath);
 

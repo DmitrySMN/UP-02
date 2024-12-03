@@ -192,6 +192,9 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data\restore_dump.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="imges\estate\home.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
