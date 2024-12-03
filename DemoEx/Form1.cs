@@ -141,8 +141,16 @@ namespace DemoEx
             else
             {
                 MessageBox.Show("Каптча введена неверно!", "Каптча", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                blockUIAsync();
             }
             captchaInputText.Clear();
+        }
+
+        private async Task blockUIAsync()
+        {
+            this.Enabled = false;
+            await Task.Delay(TimeSpan.FromSeconds(10));
+            this.Enabled = true;
         }
     }
 }
