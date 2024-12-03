@@ -104,5 +104,52 @@ namespace DemoEx
         {
             Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Вы точно хотите восстановить базу данных?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+       
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    restoreDataBase();
+                    MessageBox.Show("Восстановление успешно выполнено!", "Восстановление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception excc)
+                {
+                    MessageBox.Show("Восстановление не удалось", "Восстановление", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                }
+            } else
+            {
+
+            }
+        }
+
+        private void restoreDataBase()
+        {
+            string connectionString = "host=localhost;uid=root;pwd=root;database=db17;";
+            string sqlFilePath = "restore_dump.sql";
+
+            string sqlScript = File.ReadAllText(sqlFilePath);
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                MySqlCommand command = new MySqlCommand();
+                command.Connection = connection;
+
+                string[] sqlCommands = sqlScript.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (string commandText in sqlCommands)
+                {
+                    if (!string.IsNullOrWhiteSpace(commandText))
+                    {
+                        command.CommandText = commandText;
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+        }
     }
 }

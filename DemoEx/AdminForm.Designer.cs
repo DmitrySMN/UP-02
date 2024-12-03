@@ -85,6 +85,7 @@ namespace DemoEx
             this.button2.TabIndex = 2;
             this.button2.Text = "Восстановить БД";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button4
             // 
@@ -120,7 +121,7 @@ namespace DemoEx
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Yu Gothic UI", 18F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.Margin = new System.Windows.Forms.Padding(7);
             this.Name = "AdminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Импорт данных";
