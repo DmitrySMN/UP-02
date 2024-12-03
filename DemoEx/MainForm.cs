@@ -583,6 +583,14 @@ namespace DemoEx
             {
                 dataGridView1.ClearSelection();
                 dataGridView1[e.ColumnIndex, e.RowIndex].Selected = true;
+                if (dataGridView1.SelectedRows[0].Cells[8].Value.ToString() == "Продавец" || dataGridView1.SelectedRows[0].Cells[8].Value.ToString() == "Арендодатель" )
+                {
+                    contextMenuStrip1.Items["toolStripMenuItem1"].Visible = false;
+                } else
+                {
+                    contextMenuStrip1.Items["toolStripMenuItem1"].Visible = true;
+                }
+                
             }
         }
 
