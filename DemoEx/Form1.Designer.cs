@@ -88,7 +88,7 @@ namespace DemoEx
             this.label1.Location = new System.Drawing.Point(11, 100);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 32);
+            this.label1.Size = new System.Drawing.Size(83, 32);
             this.label1.TabIndex = 13;
             this.label1.Text = "Логин";
             // 
@@ -100,7 +100,7 @@ namespace DemoEx
             this.label2.Location = new System.Drawing.Point(11, 190);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 32);
+            this.label2.Size = new System.Drawing.Size(100, 32);
             this.label2.TabIndex = 14;
             this.label2.Text = "Пароль";
             // 
@@ -112,7 +112,7 @@ namespace DemoEx
             this.checkBox1.Location = new System.Drawing.Point(17, 281);
             this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(219, 36);
+            this.checkBox1.Size = new System.Drawing.Size(220, 36);
             this.checkBox1.TabIndex = 15;
             this.checkBox1.Text = "Показать пароль";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -183,7 +183,7 @@ namespace DemoEx
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Авторизация";
+            this.Text = "АВТОРИЗАЦИЯ";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
