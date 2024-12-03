@@ -213,7 +213,7 @@ namespace DemoEx
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(365, 45);
             this.button3.TabIndex = 21;
-            this.button3.Text = "Войти";
+            this.button3.Text = "Проверить";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 

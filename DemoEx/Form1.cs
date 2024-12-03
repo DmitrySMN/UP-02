@@ -112,9 +112,10 @@ namespace DemoEx
                     if (db.getHashFromPassword(pwd) == pwdFromDb)
                     {
                         int post = Convert.ToInt32(db.getIntValuesFromColumn($"select post from employees where login='{login}';")[0]);
-                        new MainForm(login, post).ShowDialog();
                         loginTb.Clear();
                         pwdTb.Clear();
+                        captcha.Visible = false;
+                        new MainForm(login, post).ShowDialog();
                     }
                     else
                     {
@@ -135,12 +136,13 @@ namespace DemoEx
             if (captchaInputText.Text == db.getCaptchaText())
             {
                 captcha.Visible = false;
-            } else
+                captchaPicture.Image = db.createImageForCaptcha(captchaPicture.Width, captchaPicture.Height, 4);
+            }
+            else
             {
                 MessageBox.Show("Каптча введена неверно!", "Каптча", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
-
+            captchaInputText.Clear();
         }
     }
 }
