@@ -41,9 +41,9 @@ namespace DemoEx
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.captcha = new System.Windows.Forms.GroupBox();
-            this.captchaPicture = new System.Windows.Forms.PictureBox();
-            this.captchaInputText = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.captchaInputText = new System.Windows.Forms.TextBox();
+            this.captchaPicture = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.captcha.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.captchaPicture)).BeginInit();
@@ -77,12 +77,12 @@ namespace DemoEx
             this.loginTb.BackColor = System.Drawing.Color.White;
             this.loginTb.Font = new System.Drawing.Font("Yu Gothic UI", 18F);
             this.loginTb.ForeColor = System.Drawing.Color.Black;
-            this.loginTb.Location = new System.Drawing.Point(15, 140);
+            this.loginTb.Location = new System.Drawing.Point(17, 140);
             this.loginTb.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.loginTb.MaxLength = 16;
             this.loginTb.Name = "loginTb";
             this.loginTb.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.loginTb.Size = new System.Drawing.Size(365, 39);
+            this.loginTb.Size = new System.Drawing.Size(363, 39);
             this.loginTb.TabIndex = 0;
             this.loginTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.loginTb_KeyPress_1);
             // 
@@ -95,7 +95,7 @@ namespace DemoEx
             this.label1.Location = new System.Drawing.Point(11, 100);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 32);
+            this.label1.Size = new System.Drawing.Size(83, 32);
             this.label1.TabIndex = 13;
             this.label1.Text = "Логин";
             // 
@@ -107,7 +107,7 @@ namespace DemoEx
             this.label2.Location = new System.Drawing.Point(11, 190);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 32);
+            this.label2.Size = new System.Drawing.Size(100, 32);
             this.label2.TabIndex = 14;
             this.label2.Text = "Пароль";
             // 
@@ -119,7 +119,7 @@ namespace DemoEx
             this.checkBox1.Location = new System.Drawing.Point(17, 281);
             this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(219, 36);
+            this.checkBox1.Size = new System.Drawing.Size(220, 36);
             this.checkBox1.TabIndex = 15;
             this.checkBox1.Text = "Показать пароль";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -187,22 +187,6 @@ namespace DemoEx
             this.captcha.TabStop = false;
             this.captcha.Text = "Captcha";
             // 
-            // captchaPicture
-            // 
-            this.captchaPicture.Location = new System.Drawing.Point(25, 38);
-            this.captchaPicture.Name = "captchaPicture";
-            this.captchaPicture.Size = new System.Drawing.Size(315, 186);
-            this.captchaPicture.TabIndex = 0;
-            this.captchaPicture.TabStop = false;
-            // 
-            // captchaInputText
-            // 
-            this.captchaInputText.Location = new System.Drawing.Point(25, 233);
-            this.captchaInputText.MaxLength = 4;
-            this.captchaInputText.Name = "captchaInputText";
-            this.captchaInputText.Size = new System.Drawing.Size(315, 39);
-            this.captchaInputText.TabIndex = 1;
-            // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Black;
@@ -216,6 +200,22 @@ namespace DemoEx
             this.button3.Text = "Проверить";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // captchaInputText
+            // 
+            this.captchaInputText.Location = new System.Drawing.Point(25, 233);
+            this.captchaInputText.MaxLength = 4;
+            this.captchaInputText.Name = "captchaInputText";
+            this.captchaInputText.Size = new System.Drawing.Size(315, 39);
+            this.captchaInputText.TabIndex = 1;
+            // 
+            // captchaPicture
+            // 
+            this.captchaPicture.Location = new System.Drawing.Point(25, 38);
+            this.captchaPicture.Name = "captchaPicture";
+            this.captchaPicture.Size = new System.Drawing.Size(315, 186);
+            this.captchaPicture.TabIndex = 0;
+            this.captchaPicture.TabStop = false;
             // 
             // Form1
             // 

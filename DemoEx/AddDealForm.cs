@@ -173,11 +173,13 @@ namespace DemoEx
                     {
                         if (type.Text == "Покупка")
                         {
-                            DocumentHelper.createDocument(clientId, ownerId, estateId);
+                            DocumentHelper.createPurchaseDocument(clientId, ownerId, estateId);
 
                         }
                         else
                         {
+                            DocumentHelper.createRentDocument(clientId, ownerId, estateId);
+
                         }
                     }
                 }
