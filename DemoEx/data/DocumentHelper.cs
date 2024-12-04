@@ -423,10 +423,107 @@ namespace DemoEx.data
             bodyParagraph13.Range.Font.Size = 16;
             bodyParagraph13.Range.Font.Bold = 0;
             bodyParagraph13.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphJustify;
-            bodyParagraph13.Range.Text = $"2.3.7. Соблюдать правила проживания в жилых помещениях, правила пожарной безопасности, санитарно-технических норм, требования по охране окружающей среды, правила эксплуатации установленного в Жилом помещении санитарно-технического и инженерного оборудования.Не допускать нарушения прав и законных интересов соседей.";
+            bodyParagraph13.Range.Text = $"2.2.4. Соблюдать правила проживания в жилых помещениях, правила пожарной безопасности, санитарно-технических норм, требования по охране окружающей среды, правила эксплуатации установленного в Жилом помещении санитарно-технического и инженерного оборудования.Не допускать нарушения прав и законных интересов соседей.";
             bodyParagraph13.Range.Font.Name = "Times New Roman";
             bodyParagraph13.Range.ParagraphFormat.SpaceBefore = 24;
             bodyParagraph13.Range.InsertParagraphAfter();
+
+            Paragraph bodyParagraph14 = wordDoc.Content.Paragraphs.Add();
+            bodyParagraph14.Range.Font.Size = 16;
+            bodyParagraph14.Range.Font.Bold = 0;
+            bodyParagraph14.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphJustify;
+            bodyParagraph14.Range.Text = $"2.2.5. Предоставлять возможность Наймодателю или уполномоченным им лицам, а также представителям городских служб проверять техническое состояние Жилого помещения и расположенного в нем оборудования, а также соблюдение условий его использования.";
+            bodyParagraph14.Range.Font.Name = "Times New Roman";
+            bodyParagraph14.Range.ParagraphFormat.SpaceBefore = 24;
+            bodyParagraph14.Range.InsertParagraphAfter();
+
+            Paragraph bodyParagraph15 = wordDoc.Content.Paragraphs.Add();
+            bodyParagraph15.Range.Font.Size = 16;
+            bodyParagraph15.Range.Font.Bold = 0;
+            bodyParagraph15.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphJustify;
+            bodyParagraph15.Range.Text = $"2.2.6. Освободить Помещение и передать его Арендодателю по Акту приема-передачи в течение _____________________________ после истечения срока пользования Жилым помещением, или в течение ____________________________ с момента досрочного расторжения настоящего Договора.";
+            bodyParagraph15.Range.Font.Name = "Times New Roman";
+            bodyParagraph15.Range.ParagraphFormat.SpaceBefore = 24;
+            bodyParagraph15.Range.InsertParagraphAfter();
+
+            Paragraph bodyParagraph16 = wordDoc.Content.Paragraphs.Add();
+            bodyParagraph16.Range.Font.Size = 16;
+            bodyParagraph16.Range.Font.Bold = 0;
+            bodyParagraph16.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphJustify;
+            bodyParagraph16.Range.Text = $"Жилое помещение передается вместе с имуществом, которое находилось в Жилом помещении в момент его принятия Арендателем, и указанном в Акте приема-передачи, а также с произведенными улучшениями, неотделимыми без вреда для конструкций Жилого помещения.";
+            bodyParagraph16.Range.Font.Name = "Times New Roman";
+            bodyParagraph16.Range.ParagraphFormat.SpaceBefore = 24;
+            bodyParagraph16.Range.InsertParagraphAfter();
+
+            Paragraph bodyParagraph17 = wordDoc.Content.Paragraphs.Add();
+            bodyParagraph17.Range.Font.Size = 16;
+            bodyParagraph17.Range.Font.Bold = 0;
+            bodyParagraph17.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphJustify;
+            bodyParagraph17.Range.Text = $"До передачи (возврата) Жилого помещения Арендодателю Арендатель обязан привести Жилое помещение в первоначальное (исходное) состояние (за исключением произведенных в соответствии с условиями настоящего Договора улучшений), за свой счет провести текущий ремонт Жилого помещения и устранить все повреждения, образовавшиеся в процессе его эксплуатации, либо оплатить Арендодателю стоимость не произведенного текущего ремонта.";
+            bodyParagraph17.Range.Font.Name = "Times New Roman";
+            bodyParagraph17.Range.ParagraphFormat.SpaceBefore = 24;
+            bodyParagraph17.Range.InsertParagraphAfter();
+
+            Paragraph subjectTitleParagraph4 = wordDoc.Content.Paragraphs.Add();
+            subjectTitleParagraph4.Range.Text = "3. Платежи и расчеты по договору.";
+            subjectTitleParagraph4.Range.Font.Name = "Times New Roman";
+            subjectTitleParagraph4.Range.Font.Size = 20;
+            subjectTitleParagraph4.Range.Font.Bold = 1;
+            subjectTitleParagraph4.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+            subjectTitleParagraph4.Range.InsertParagraphAfter();
+
+            Paragraph bodyParagraph18 = wordDoc.Content.Paragraphs.Add();
+            bodyParagraph18.Range.Font.Size = 16;
+            bodyParagraph18.Range.Font.Bold = 0;
+            bodyParagraph18.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphJustify;
+            bodyParagraph18.Range.Text = $"Стороны устанавливают следующий порядок расчетов между сторонами по настоящему Договору: 3.1.Ежемесячная плата за пользование Жилым помещением устанавливается в сумме {estatePrice} рублей.";
+            bodyParagraph18.Range.Font.Name = "Times New Roman";
+            bodyParagraph18.Range.ParagraphFormat.SpaceBefore = 24;
+            bodyParagraph18.Range.InsertParagraphAfter();
+
+            Paragraph bodyParagraph19 = wordDoc.Content.Paragraphs.Add();
+            bodyParagraph19.Range.Font.Size = 16;
+            bodyParagraph19.Range.Font.Bold = 0;
+            bodyParagraph19.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphJustify;
+            bodyParagraph19.Range.Text = $"3.1.Ежемесячная плата за пользование Жилым помещением устанавливается в сумме {estatePrice} рублей.";
+            bodyParagraph19.Range.Font.Name = "Times New Roman";
+            bodyParagraph19.Range.ParagraphFormat.SpaceBefore = 24;
+            bodyParagraph19.Range.InsertParagraphAfter();
+
+            Paragraph bodyParagraph20 = wordDoc.Content.Paragraphs.Add();
+            bodyParagraph20.Range.Font.Size = 16;
+            bodyParagraph20.Range.Font.Bold = 0;
+            bodyParagraph20.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphJustify;
+            bodyParagraph20.Range.Text = $"3.2. Плата за пользование Жилым помещением, установленная п. 3.1 настоящего Договора, рассчитывается с момента передачи Жилого помещения Нанимателю по Акту приема-передачи и уплачивается Нанимателем ежемесячно до ____________________ числа текущего (оплачиваемого) месяца путем передачи Нанимателем Наймодателю наличных денежных средств. Каждая передача денежных средств подтверждается распиской, которую Наймодатель передает Нанимателю.";
+            bodyParagraph20.Range.Font.Name = "Times New Roman";
+            bodyParagraph20.Range.ParagraphFormat.SpaceBefore = 24;
+            bodyParagraph20.Range.InsertParagraphAfter();
+
+            Paragraph bodyParagraph21 = wordDoc.Content.Paragraphs.Add();
+            bodyParagraph21.Range.Font.Size = 16;
+            bodyParagraph21.Range.Font.Bold = 0;
+            bodyParagraph21.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphJustify;
+            bodyParagraph21.Range.Text = $"3.3. Стоимость коммунальных услуг (электроэнергия, горячее и холодное водоснабжение, канализация, природный газ, телефон, иные коммунальные услуги и услуги, связанные с эксплуатацией и обслуживанием Жилого помещения и многоквартирного дома, в котором Жилое помещение расположено, и т.д.) не включается в стоимость платы за пользование Жилым помещением, указанную в п. 3.1 настоящего Договора и оплачивается Нанимателем дополнительно и самостоятельно на основании показаний приборов учета либо платежных документов организаций, предоставляющих указанные услуги, в порядке и в сроки, установленные требованиями нормативных правовых актов и требованиями организаций, предоставляющих соответствующие услуги.";
+            bodyParagraph21.Range.Font.Name = "Times New Roman";
+            bodyParagraph21.Range.ParagraphFormat.SpaceBefore = 24;
+            bodyParagraph21.Range.InsertParagraphAfter();
+
+            Paragraph subjectTitleParagraph5 = wordDoc.Content.Paragraphs.Add();
+            subjectTitleParagraph5.Range.Text = "4. Срок владения и пользования Жилым помещением. Срок действия договора.";
+            subjectTitleParagraph5.Range.Font.Name = "Times New Roman";
+            subjectTitleParagraph5.Range.Font.Size = 20;
+            subjectTitleParagraph5.Range.Font.Bold = 1;
+            subjectTitleParagraph5.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+            subjectTitleParagraph5.Range.InsertParagraphAfter();
+
+            Paragraph bodyParagraph22 = wordDoc.Content.Paragraphs.Add();
+            bodyParagraph22.Range.Font.Size = 16;
+            bodyParagraph22.Range.Font.Bold = 0;
+            bodyParagraph22.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphJustify;
+            bodyParagraph22.Range.Text = $"4.1. Жилое помещение передается во временное владение и пользование Нанимателю на срок с момента передачи Жилого помещения Нанимателю по Акту приема-передачи до _________________________________ .";
+            bodyParagraph22.Range.Font.Name = "Times New Roman";
+            bodyParagraph22.Range.ParagraphFormat.SpaceBefore = 24;
+            bodyParagraph22.Range.InsertParagraphAfter();
 
             wordDoc.Close();
             wordApp.Quit();
