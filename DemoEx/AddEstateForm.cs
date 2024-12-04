@@ -51,10 +51,12 @@ namespace DemoEx
             if (id == 0)
             {
                 button1.Text = "Добавить";
+                status.Items.Clear();
                 status.Items.Add("Продажа");
                 status.Items.Add("Сдача в аренду");
             } else
             {
+                status.Items.Clear();
                 status.Items.Add("В продаже");
                 status.Items.Add("Сдается в аренду");
                 status.Text = db.getValuesFromColumn($"select status from estate where id={id};")[0];

@@ -330,7 +330,7 @@ namespace DemoEx.data
             bodyParagraph3.Range.InsertParagraphAfter();
 
             Paragraph subjectTitleParagraph3 = wordDoc.Content.Paragraphs.Add();
-            subjectTitleParagraph3.Range.Text = "2. Права и обязанности Сторон.";
+            subjectTitleParagraph3.Range.Text = "2. Обязанности Сторон.";
             subjectTitleParagraph3.Range.Font.Name = "Times New Roman";
             subjectTitleParagraph3.Range.Font.Size = 20;
             subjectTitleParagraph3.Range.Font.Bold = 1;
@@ -340,10 +340,10 @@ namespace DemoEx.data
             Paragraph bodyParagraph4 = wordDoc.Content.Paragraphs.Add();
             bodyParagraph4.Range.Font.Size = 16;
             bodyParagraph4.Range.Font.Bold = 0;
-            bodyParagraph4.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphJustify;
             bodyParagraph4.Range.Text = $"2.1. Арендодатель обязан.";
             bodyParagraph4.Range.Font.Name = "Times New Roman";
             bodyParagraph4.Range.ParagraphFormat.SpaceBefore = 24;
+            bodyParagraph4.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphJustify;
             bodyParagraph4.Range.InsertParagraphAfter();
 
             Paragraph bodyParagraph5= wordDoc.Content.Paragraphs.Add();
@@ -382,6 +382,51 @@ namespace DemoEx.data
             bodyParagraph8.Range.Font.Name = "Times New Roman";
             bodyParagraph8.Range.ParagraphFormat.SpaceBefore = 24;
             bodyParagraph8.Range.InsertParagraphAfter();
+
+            Paragraph bodyParagraph9 = wordDoc.Content.Paragraphs.Add();
+            bodyParagraph9.Range.Font.Size = 16;
+            bodyParagraph9.Range.Font.Bold = 0;
+            bodyParagraph9.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphJustify;
+            bodyParagraph9.Range.Text = $"2.2. Арендатель обязан.";
+            bodyParagraph9.Range.Font.Name = "Times New Roman";
+            bodyParagraph9.Range.ParagraphFormat.SpaceBefore = 24;
+            bodyParagraph9.Range.InsertParagraphAfter();
+
+            Paragraph bodyParagraph10 = wordDoc.Content.Paragraphs.Add();
+            bodyParagraph10.Range.Font.Size = 16;
+            bodyParagraph10.Range.Font.Bold = 0;
+            bodyParagraph10.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphJustify;
+            bodyParagraph10.Range.Text = $"2.2.1. В течение 7 календарных дней с момента заключения настоящего Договора принять от Наймодателя по Акту приема-передачи Жилое помещение, имущество и документацию.";
+            bodyParagraph10.Range.Font.Name = "Times New Roman";
+            bodyParagraph10.Range.ParagraphFormat.SpaceBefore = 24;
+            bodyParagraph10.Range.InsertParagraphAfter();
+
+            Paragraph bodyParagraph11 = wordDoc.Content.Paragraphs.Add();
+            bodyParagraph11.Range.Font.Size = 16;
+            bodyParagraph11.Range.Font.Bold = 0;
+            bodyParagraph11.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphJustify;
+            bodyParagraph11.Range.Text = $"2.2.2. Своевременно и в полном объеме вносить плату за пользование Жилым помещением, за коммунальные и прочие услуги, платежи в счет долевого участия в расходах по содержанию дома и придомовой территории, а также осуществлять другие платежи в соответствии с условиями настоящего Договора, дополнительных соглашений и приложений к нему.";
+            bodyParagraph11.Range.Font.Name = "Times New Roman";
+            bodyParagraph11.Range.ParagraphFormat.SpaceBefore = 24;
+            bodyParagraph11.Range.InsertParagraphAfter();
+
+            Paragraph bodyParagraph12 = wordDoc.Content.Paragraphs.Add();
+            bodyParagraph12.Range.Font.Size = 16;
+            bodyParagraph12.Range.Font.Bold = 0;
+            bodyParagraph12.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphJustify;
+            bodyParagraph12.Range.Text = $"2.2.3. Обеспечить сохранность Жилого помещения и находящегося в нем имущества и оборудования. Не допускать их разрушения или повреждения.";
+            bodyParagraph12.Range.Font.Name = "Times New Roman";
+            bodyParagraph12.Range.ParagraphFormat.SpaceBefore = 24;
+            bodyParagraph12.Range.InsertParagraphAfter();
+
+            Paragraph bodyParagraph13 = wordDoc.Content.Paragraphs.Add();
+            bodyParagraph13.Range.Font.Size = 16;
+            bodyParagraph13.Range.Font.Bold = 0;
+            bodyParagraph13.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphJustify;
+            bodyParagraph13.Range.Text = $"2.3.7. Соблюдать правила проживания в жилых помещениях, правила пожарной безопасности, санитарно-технических норм, требования по охране окружающей среды, правила эксплуатации установленного в Жилом помещении санитарно-технического и инженерного оборудования.Не допускать нарушения прав и законных интересов соседей.";
+            bodyParagraph13.Range.Font.Name = "Times New Roman";
+            bodyParagraph13.Range.ParagraphFormat.SpaceBefore = 24;
+            bodyParagraph13.Range.InsertParagraphAfter();
 
             wordDoc.Close();
             wordApp.Quit();
