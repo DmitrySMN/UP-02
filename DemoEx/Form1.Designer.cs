@@ -44,9 +44,11 @@ namespace DemoEx
             this.button3 = new System.Windows.Forms.Button();
             this.captchaInputText = new System.Windows.Forms.TextBox();
             this.captchaPicture = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.captcha.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.captchaPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pwdTb
@@ -176,6 +178,7 @@ namespace DemoEx
             // 
             // captcha
             // 
+            this.captcha.Controls.Add(this.pictureBox2);
             this.captcha.Controls.Add(this.button3);
             this.captcha.Controls.Add(this.captchaInputText);
             this.captcha.Controls.Add(this.captchaPicture);
@@ -206,7 +209,7 @@ namespace DemoEx
             this.captchaInputText.Location = new System.Drawing.Point(25, 233);
             this.captchaInputText.MaxLength = 4;
             this.captchaInputText.Name = "captchaInputText";
-            this.captchaInputText.Size = new System.Drawing.Size(315, 39);
+            this.captchaInputText.Size = new System.Drawing.Size(243, 39);
             this.captchaInputText.TabIndex = 1;
             // 
             // captchaPicture
@@ -216,6 +219,17 @@ namespace DemoEx
             this.captchaPicture.Size = new System.Drawing.Size(315, 186);
             this.captchaPicture.TabIndex = 0;
             this.captchaPicture.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(275, 231);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(65, 43);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 22;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // Form1
             // 
@@ -251,6 +265,7 @@ namespace DemoEx
             this.captcha.ResumeLayout(false);
             this.captcha.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.captchaPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,6 +286,7 @@ namespace DemoEx
         private System.Windows.Forms.PictureBox captchaPicture;
         private System.Windows.Forms.TextBox captchaInputText;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

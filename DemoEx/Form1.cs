@@ -140,7 +140,7 @@ namespace DemoEx
             }
             else
             {
-                MessageBox.Show("Каптча введена неверно!", "Каптча", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Каптча введена неверно! Система заблокирована на 10 секунд.", "Каптча", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 blockUIAsync();
             }
             captchaInputText.Clear();
@@ -151,6 +151,11 @@ namespace DemoEx
             this.Enabled = false;
             await Task.Delay(TimeSpan.FromSeconds(10));
             this.Enabled = true;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            captchaPicture.Image = db.createImageForCaptcha(captchaPicture.Width, captchaPicture.Height, 4);
         }
     }
 }
