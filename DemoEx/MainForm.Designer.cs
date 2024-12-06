@@ -65,6 +65,7 @@ namespace DemoEx
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pages = new System.Windows.Forms.Label();
             this.pageNumber = new System.Windows.Forms.Label();
+            this.подробнаяИнформацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -347,9 +348,10 @@ namespace DemoEx
             this.toolStripMenuItem2,
             this.toolStripMenuItem3,
             this.toolStripMenuItem4,
-            this.удалитьСотрудникаToolStripMenuItem});
+            this.удалитьСотрудникаToolStripMenuItem,
+            this.подробнаяИнформацияToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(221, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(221, 158);
             // 
             // toolStripMenuItem1
             // 
@@ -424,6 +426,13 @@ namespace DemoEx
             this.pageNumber.Name = "pageNumber";
             this.pageNumber.Size = new System.Drawing.Size(0, 32);
             this.pageNumber.TabIndex = 19;
+            // 
+            // подробнаяИнформацияToolStripMenuItem
+            // 
+            this.подробнаяИнформацияToolStripMenuItem.Name = "подробнаяИнформацияToolStripMenuItem";
+            this.подробнаяИнформацияToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.подробнаяИнформацияToolStripMenuItem.Text = "Подробная информация";
+            this.подробнаяИнформацияToolStripMenuItem.Click += new System.EventHandler(this.подробнаяИнформацияToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -507,5 +516,6 @@ namespace DemoEx
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label pages;
         private System.Windows.Forms.Label pageNumber;
+        private System.Windows.Forms.ToolStripMenuItem подробнаяИнформацияToolStripMenuItem;
     }
 }
