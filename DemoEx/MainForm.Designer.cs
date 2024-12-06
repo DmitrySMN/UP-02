@@ -63,6 +63,8 @@ namespace DemoEx
             this.удалитьСотрудникаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pages = new System.Windows.Forms.Label();
+            this.pageNumber = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -274,7 +276,7 @@ namespace DemoEx
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1552, 6);
+            this.label7.Location = new System.Drawing.Point(1476, 6);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(0, 32);
             this.label7.TabIndex = 15;
@@ -282,7 +284,7 @@ namespace DemoEx
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1474, 6);
+            this.label6.Location = new System.Drawing.Point(1382, 6);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 32);
             this.label6.TabIndex = 14;
@@ -301,7 +303,7 @@ namespace DemoEx
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(12, 134);
+            this.button1.Location = new System.Drawing.Point(179, 134);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(198, 40);
             this.button1.TabIndex = 13;
@@ -311,7 +313,7 @@ namespace DemoEx
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(740, 134);
+            this.searchTextBox.Location = new System.Drawing.Point(907, 134);
             this.searchTextBox.MaxLength = 24;
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(480, 39);
@@ -322,7 +324,7 @@ namespace DemoEx
             // filter
             // 
             this.filter.FormattingEnabled = true;
-            this.filter.Location = new System.Drawing.Point(216, 134);
+            this.filter.Location = new System.Drawing.Point(383, 134);
             this.filter.Name = "filter";
             this.filter.Size = new System.Drawing.Size(223, 40);
             this.filter.TabIndex = 15;
@@ -331,7 +333,7 @@ namespace DemoEx
             // sort
             // 
             this.sort.FormattingEnabled = true;
-            this.sort.Location = new System.Drawing.Point(445, 134);
+            this.sort.Location = new System.Drawing.Point(612, 134);
             this.sort.Name = "sort";
             this.sort.Size = new System.Drawing.Size(290, 40);
             this.sort.TabIndex = 16;
@@ -386,22 +388,41 @@ namespace DemoEx
             // pictureBox8
             // 
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(1301, 133);
+            this.pictureBox8.Location = new System.Drawing.Point(127, 134);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(46, 40);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox8.TabIndex = 14;
             this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
             // 
             // pictureBox9
             // 
             this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(1240, 133);
+            this.pictureBox9.Location = new System.Drawing.Point(12, 134);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(46, 40);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox9.TabIndex = 17;
             this.pictureBox9.TabStop = false;
+            this.pictureBox9.Click += new System.EventHandler(this.pictureBox9_Click);
+            // 
+            // pages
+            // 
+            this.pages.AutoSize = true;
+            this.pages.Font = new System.Drawing.Font("Yu Gothic UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.pages.Location = new System.Drawing.Point(84, 136);
+            this.pages.Name = "pages";
+            this.pages.Size = new System.Drawing.Size(0, 37);
+            this.pages.TabIndex = 18;
+            // 
+            // pageNumber
+            // 
+            this.pageNumber.AutoSize = true;
+            this.pageNumber.Location = new System.Drawing.Point(62, 142);
+            this.pageNumber.Name = "pageNumber";
+            this.pageNumber.Size = new System.Drawing.Size(0, 32);
+            this.pageNumber.TabIndex = 19;
             // 
             // MainForm
             // 
@@ -410,6 +431,8 @@ namespace DemoEx
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1619, 906);
             this.ControlBox = false;
+            this.Controls.Add(this.pageNumber);
+            this.Controls.Add(this.pages);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.sort);
@@ -481,5 +504,7 @@ namespace DemoEx
         private System.Windows.Forms.ToolStripMenuItem удалитьСотрудникаToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.Label pages;
+        private System.Windows.Forms.Label pageNumber;
     }
 }

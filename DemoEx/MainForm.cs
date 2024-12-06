@@ -21,6 +21,9 @@ namespace DemoEx
         private string login;
         private int post;
         private int currentInfo = 1;
+        private int offset = 0;
+        private int countPages = 0;
+        private int currentPage = 1;
         public MainForm(string login, int post)
         {
             this.login = login;
@@ -58,13 +61,26 @@ namespace DemoEx
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(246, 246, 246);
             dataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
-            db.FillDGV(dataGridView1, "select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients;");
+            db.FillDGV(dataGridView1, $"select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients limit 20 offset {offset};");
             dataGridView1.Columns["id"].Visible = false;
             dataGridView1.RowTemplate.Height = 85;
             var count = db.getIntValuesFromColumn("select count(*) from clients;")[0];
             pathString.Text = "/ Клиенты / Список";
-            label7.Text = count.ToString();
             searchTextBox.Visible = true;
+
+            int countRecords = db.getIntValuesFromColumn("select count(*) from clients;")[0];
+            label7.Text = $"{db.getIntValuesFromColumn($"select count(*) from clients limit 20 offset {offset};")[0]} из {count}";
+
+            if (countRecords % 20 == 0)
+            {
+                countPages = countRecords / 20;
+            } else
+            {
+                countPages = countRecords / 20 + 1;
+            }
+
+
+            pages.Text = $"/{countPages}";
 
             filter.DropDownStyle = ComboBoxStyle.DropDownList;
             sort.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -149,45 +165,45 @@ namespace DemoEx
 
         private void label3_Click_1(object sender, EventArgs e)
         {
-            button1.Text = "Добавить";
-            sort.Visible = true;
-            contextMenuStrip1.Items["toolStripMenuItem1"].Visible = true;
-            contextMenuStrip1.Items["toolStripMenuItem2"].Visible = true;
-            contextMenuStrip1.Items["toolStripMenuItem3"].Visible = false;
-            contextMenuStrip1.Items["toolStripMenuItem4"].Visible = false;
-            contextMenuStrip1.Items["удалитьСотрудникаToolStripMenuItem"].Visible = false;
+            //button1.Text = "Добавить";
+            //sort.Visible = true;
+            //contextMenuStrip1.Items["toolStripMenuItem1"].Visible = true;
+            //contextMenuStrip1.Items["toolStripMenuItem2"].Visible = true;
+            //contextMenuStrip1.Items["toolStripMenuItem3"].Visible = false;
+            //contextMenuStrip1.Items["toolStripMenuItem4"].Visible = false;
+            //contextMenuStrip1.Items["удалитьСотрудникаToolStripMenuItem"].Visible = false;
 
-            if (dataGridView1.Columns["Фото объекта"] == null)
-            {
+            //if (dataGridView1.Columns["Фото объекта"] == null)
+            //{
 
-            } else
-            {
-                dataGridView1.Columns.Remove("Фото объекта");
-            }
+            //} else
+            //{
+            //    dataGridView1.Columns.Remove("Фото объекта");
+            //}
 
-            db.FillDGV(dataGridView1, "select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные', address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients;");
-            pathString.Text = "/ Клиенты / Список";
-            var count = db.getIntValuesFromColumn("select count(*) from clients;")[0];
-            label7.Text = count.ToString();
-            currentInfo = 1;
-            searchTextBox.Visible = true;
+            //db.FillDGV(dataGridView1, "select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные', address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients;");
+            //pathString.Text = "/ Клиенты / Список";
+            //var count = db.getIntValuesFromColumn("select count(*) from clients;")[0];
+            //label7.Text = count.ToString();
+            //currentInfo = 1;
+            //searchTextBox.Visible = true;
 
-            filter.Items.Clear();
+            //filter.Items.Clear();
 
-            filter.Items.Add("По умолчанию");
-            filter.Items.Add("Покупатели");
-            filter.Items.Add("Продавцы");
-            filter.Items.Add("Арендатели");
-            filter.Items.Add("Арендодатели");
+            //filter.Items.Add("По умолчанию");
+            //filter.Items.Add("Покупатели");
+            //filter.Items.Add("Продавцы");
+            //filter.Items.Add("Арендатели");
+            //filter.Items.Add("Арендодатели");
 
-            sort.Items.Clear();
+            //sort.Items.Clear();
 
-            sort.Items.Add("По умолчанию");
-            sort.Items.Add("По фамилии А-Я");
-            sort.Items.Add("По фамилии Я-А");
+            //sort.Items.Add("По умолчанию");
+            //sort.Items.Add("По фамилии А-Я");
+            //sort.Items.Add("По фамилии Я-А");
 
-            filter.SelectedIndex = 0;
-            sort.SelectedIndex = 0;
+            //filter.SelectedIndex = 0;
+            //sort.SelectedIndex = 0;
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -319,7 +335,7 @@ namespace DemoEx
             switch (currentInfo)
             {
                 case 1:
-                    db.FillDGV(dataGridView1, $"select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients where surname like '{searchTextBox.Text}%';");
+                    ////db.FillDGV(dataGridView1, $"select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients where surname like '{searchTextBox.Text}%';");
                     break;
                 case 2:
                     break;
@@ -336,21 +352,21 @@ namespace DemoEx
             searchTextBox.Clear();
             switch (filter.Text)
             {
-                case "По умолчанию":
-                    db.FillDGV(dataGridView1, "select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients;");
-                    break;
-                case "Покупатели":
-                    db.FillDGV(dataGridView1, "select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients where type='Покупатель';");
-                    break;
-                case "Продавцы":
-                    db.FillDGV(dataGridView1, "select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients where type='Продавец';");
-                    break;
-                case "Арендатели":
-                    db.FillDGV(dataGridView1, "select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients where type='Арендатель';");
-                    break;
-                case "Арендодатели":
-                    db.FillDGV(dataGridView1, "select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients where type='Арендодатель';");
-                    break;
+                //case "По умолчанию":
+                //    db.FillDGV(dataGridView1, "select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients;");
+                //    break;
+                //case "Покупатели":
+                //    db.FillDGV(dataGridView1, "select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients where type='Покупатель';");
+                //    break;
+                //case "Продавцы":
+                //    db.FillDGV(dataGridView1, "select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients where type='Продавец';");
+                //    break;
+                //case "Арендатели":
+                //    db.FillDGV(dataGridView1, "select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients where type='Арендатель';");
+                //    break;
+                //case "Арендодатели":
+                //    db.FillDGV(dataGridView1, "select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients where type='Арендодатель';");
+                //    break;
                 case "По умолчанию ":
                     db.FillDGV(dataGridView1, $"select id, (select type from estate_type where id=estate_type) as 'Тип объекта', (select concat(Surname, Name, Patronymic) from clients where id=owner_id) as 'Владелец', address as 'Адрес', square as 'Площадь',cadastral as 'Кадастровый номер', rooms as 'Кол-во комнат', price as 'Цена', photo, status as 'Статус' from estate;");
                     dataGridView1.Columns.Remove("Фото объекта");
@@ -483,15 +499,15 @@ namespace DemoEx
             searchTextBox.Clear();
             switch (sort.Text)
             {
-                case "По умолчанию":
-                    db.FillDGV(dataGridView1, "select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients;");
-                    break;
-                case "По фамилии А-Я":
-                    db.FillDGV(dataGridView1, "select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients order by surname;");
-                    break;
-                case "По фамилии Я-А":
-                    db.FillDGV(dataGridView1, "select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients order by surname desc;");
-                    break;
+                //case "По умолчанию":
+                //    db.FillDGV(dataGridView1, "select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients;");
+                //    break;
+                //case "По фамилии А-Я":
+                //    db.FillDGV(dataGridView1, "select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients order by surname;");
+                //    break;
+                //case "По фамилии Я-А":
+                //    db.FillDGV(dataGridView1, "select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients order by surname desc;");
+                //    break;
                 case "По умолчанию  ":
                     db.FillDGV(dataGridView1, "select id, (select type from estate_type where id=estate_type) as 'Тип объекта', (select concat(Surname, Name, Patronymic) from clients where id=owner_id) as 'Владелец', address as 'Адрес', square as 'Площадь',cadastral as 'Кадастровый номер', rooms as 'Кол-во комнат', price as 'Цена', photo, status as 'Статус' from estate;");
                     dataGridView1.Columns.Remove("Фото объекта");
@@ -658,6 +674,28 @@ namespace DemoEx
             {
                 e.Handled = true;
             }
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            if (currentPage >= countPages)
+            {
+                return;
+            }
+            offset += 20;
+            currentPage += 1;
+            db.FillDGV(dataGridView1, $"select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients limit 20 offset {offset};");
+        }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {          
+            if (currentPage <= 1)
+            {
+                return;
+            }
+            offset -= 20;
+            currentPage -= 1;
+            db.FillDGV(dataGridView1, $"select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients limit 20 offset {offset};");
         }
     }
 }
