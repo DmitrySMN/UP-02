@@ -61,7 +61,7 @@ namespace DemoEx
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(246, 246, 246);
             dataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
-            db.FillDGV(dataGridView1, $"select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients limit 20 offset {offset};");
+            db.FillDGV(dataGridView1, $"select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients limit 20 offset {offset};");
             dataGridView1.Columns["id"].Visible = false;
             dataGridView1.RowTemplate.Height = 85;
             var count = db.getIntValuesFromColumn("select count(*) from clients;")[0];
@@ -684,7 +684,7 @@ namespace DemoEx
             }
             offset += 20;
             currentPage += 1;
-            db.FillDGV(dataGridView1, $"select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients limit 20 offset {offset};");
+            db.FillDGV(dataGridView1, $"select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients limit 20 offset {offset};");
         }
 
         private void pictureBox9_Click(object sender, EventArgs e)
@@ -695,7 +695,38 @@ namespace DemoEx
             }
             offset -= 20;
             currentPage -= 1;
-            db.FillDGV(dataGridView1, $"select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество', passport as 'Паспортные данные',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients limit 20 offset {offset};");
+            db.FillDGV(dataGridView1, $"select id as 'ID', Surname as 'Фамилия', Name as 'Имя', Patronymic as 'Отчество',address as 'Адрес', birth as 'Дата рождения', phone_number as 'Номер телефона', type as 'Тип' from clients limit 20 offset {offset};");
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.Value != null)
+            {
+                string val = e.Value.ToString();
+
+                switch (dataGridView1.Columns[e.ColumnIndex].Name)
+                {
+                    case "Фамилия":
+                        e.Value = val.Substring(0, 3) + "*******";
+                        break;
+                    case "Имя":
+                        e.Value = val.Substring(0, 3) + "*******";
+                        break;
+                    case "Отчество":
+                        e.Value = val.Substring(0, 3) + "*******";
+                        break;
+                    case "Номер телефона":
+                        int len = val.Length;
+                        e.Value = val.Substring(0, 3) + "*******" + val.Substring(len - 2);
+                        break;
+                    case "Дата рождения":
+                        e.Value = val.Substring(0, 6) + "****";
+                        break;
+                    case "Адрес":
+                        e.Value = val.Split(',')[0];
+                        break;
+                }
+            }
         }
     }
 }
