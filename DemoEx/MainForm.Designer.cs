@@ -61,11 +61,11 @@ namespace DemoEx
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьСотрудникаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.подробнаяИнформацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pages = new System.Windows.Forms.Label();
             this.pageNumber = new System.Windows.Forms.Label();
-            this.подробнаяИнформацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -351,7 +351,7 @@ namespace DemoEx
             this.удалитьСотрудникаToolStripMenuItem,
             this.подробнаяИнформацияToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(221, 158);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(221, 136);
             // 
             // toolStripMenuItem1
             // 
@@ -387,6 +387,13 @@ namespace DemoEx
             this.удалитьСотрудникаToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.удалитьСотрудникаToolStripMenuItem.Text = "Удалить сотрудника";
             this.удалитьСотрудникаToolStripMenuItem.Click += new System.EventHandler(this.удалитьСотрудникаToolStripMenuItem_Click);
+            // 
+            // подробнаяИнформацияToolStripMenuItem
+            // 
+            this.подробнаяИнформацияToolStripMenuItem.Name = "подробнаяИнформацияToolStripMenuItem";
+            this.подробнаяИнформацияToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.подробнаяИнформацияToolStripMenuItem.Text = "Подробная информация";
+            this.подробнаяИнформацияToolStripMenuItem.Click += new System.EventHandler(this.подробнаяИнформацияToolStripMenuItem_Click);
             // 
             // pictureBox8
             // 
@@ -427,13 +434,6 @@ namespace DemoEx
             this.pageNumber.Size = new System.Drawing.Size(0, 32);
             this.pageNumber.TabIndex = 19;
             // 
-            // подробнаяИнформацияToolStripMenuItem
-            // 
-            this.подробнаяИнформацияToolStripMenuItem.Name = "подробнаяИнформацияToolStripMenuItem";
-            this.подробнаяИнформацияToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
-            this.подробнаяИнформацияToolStripMenuItem.Text = "Подробная информация";
-            this.подробнаяИнформацияToolStripMenuItem.Click += new System.EventHandler(this.подробнаяИнформацияToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
@@ -460,6 +460,8 @@ namespace DemoEx
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Главное меню";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MainForm_KeyPress);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

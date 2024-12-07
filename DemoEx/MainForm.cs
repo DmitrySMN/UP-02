@@ -24,13 +24,33 @@ namespace DemoEx
         private int offset = 0;
         private int countPages = 0;
         private int currentPage = 1;
+        private Timer inactivityTimer;
+
         public MainForm(string login, int post)
         {
             this.login = login;
             this.post = post;
             InitializeComponent();
+            inactivityTimer = new Timer();
+            inactivityTimer.Interval += 10000;
+            inactivityTimer.Tick += InactivityTimer_Tick;
+            inactivityTimer.Start();
+
+            //this.MouseMove += ResetInactivityTimer;
+            //this.KeyPress += ResetInactivityTimer;
+            //this.KeyDown += ResetInactivityTimer;
         }
 
+
+        private void InactivityTimer_Tick(object sender, EventArgs e)
+        {
+              this.Close();
+        }
+
+        private void ResetInactivityTimer(object sender, EventArgs e)
+        {
+            inactivityTimer.Interval -= 5000;
+        }
         private void MainForm_Load(object sender, EventArgs e)
         {
             db.setConnectionStr(Connection.getConnectionString());
@@ -38,7 +58,7 @@ namespace DemoEx
             pictureBox1.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\imges\\profile\\" + db.getValuesFromColumn($"select photo from employees where login='{login}';")[0]);
 
             if (post == 2)
-            {
+                {
                 employeeLabel.Visible = false;
                 pictureBox7.Visible = false;
             }
@@ -99,6 +119,8 @@ namespace DemoEx
 
             filter.SelectedIndex = 0;
             sort.SelectedIndex = 0;
+
+
         }
 
         private void label5_Click_1(object sender, EventArgs e)
@@ -162,6 +184,8 @@ namespace DemoEx
             filter.SelectedIndex = 0;
             sort.SelectedIndex = 0;
         }
+
+        
 
         private void label3_Click_1(object sender, EventArgs e)
         {
@@ -732,6 +756,16 @@ namespace DemoEx
         private void подробнаяИнформацияToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new PersonalInformation(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)).ShowDialog();
+        }
+
+        private void MainForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ResetInactivityTimer(sender, e);
+        }
+
+        private void MainForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            ResetInactivityTimer(sender, e);
         }
     }
 }
